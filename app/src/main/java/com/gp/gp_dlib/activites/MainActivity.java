@@ -24,6 +24,7 @@ import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
 import com.google.android.gms.vision.face.LargestFaceFocusingProcessor;
 import com.gp.gp_dlib.R;
+import com.gp.gp_dlib.detection.DlibFaceDetector;
 import com.gp.gp_dlib.detection.LargestFaceTracker;
 import com.gp.gp_dlib.views.CameraSourcePreview;
 import com.gp.gp_dlib.views.GraphicOverlay;
@@ -95,12 +96,15 @@ public class MainActivity extends AppCompatActivity {
     private void createCameraSource() {
 
         Context context = getApplicationContext();
-        FaceDetector detector = new FaceDetector.Builder(context)
+        FaceDetector faceDetector = new FaceDetector.Builder(context)
                 .setLandmarkType(FaceDetector.ALL_LANDMARKS)
                 .setClassificationType(FaceDetector.NO_CLASSIFICATIONS)
                 .setMinFaceSize(0.15f)
                 .setTrackingEnabled(true)
                 .build();
+
+        DlibFaceDetector detector = new DlibFaceDetector(faceDetector);
+
 
 //                .setClassificationType(FaceDetector.ALL_CLASSIFICATIONS)
 //                .build();

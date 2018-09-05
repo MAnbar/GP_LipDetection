@@ -9,9 +9,6 @@ import com.google.android.gms.vision.face.FaceDetector;
 import com.google.android.gms.vision.face.Landmark;
 import com.gp.gp_dlib.views.GraphicOverlay;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Tracks the eye positions and state over time, managing an underlying graphic which renders googly
  * eyes over the source video.<p>
